@@ -10,19 +10,19 @@ load_longlake_data()
 ## ------------------------------------------------------------------------
 ggplot() +
   annotation_spatial(longlake_waterdf) +
-  layer_spatial(longlake_depthdf, aes(col = DEPTH.M))
+  layer_spatial(longlake_depthdf, aes(col = DEPTH_M))
 
 ## ------------------------------------------------------------------------
 ggplot() +
   annotation_spatial(longlake_waterdf) +
-  layer_spatial(longlake_depthdf, aes(col = DEPTH.M)) +
+  layer_spatial(longlake_depthdf, aes(col = DEPTH_M)) +
   annotation_scale(location = "tl") +
   annotation_north_arrow(location = "br", which_north = "true")
 
 ## ---- message=FALSE------------------------------------------------------
 ggplot() +
   annotation_map_tile(type = "osm") +
-  layer_spatial(longlake_depthdf, aes(col = DEPTH.M))
+  layer_spatial(longlake_depthdf, aes(col = DEPTH_M))
 
 ## ---- message=FALSE, warning=FALSE---------------------------------------
 cities <- data.frame(

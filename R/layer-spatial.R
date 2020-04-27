@@ -1,17 +1,18 @@
 
 #' Turn a spatial object into a ggplot2 layer
 #'
-#' @param data An object that can be coerced to an sf object using \link[sf]{st_as_sf}.
-#' @param mapping A mapping, created using \link[ggplot2]{aes}.
-#' @param sf_params Passed to \link[sf]{st_as_sf}.
+#' @param data An object that can be coerced to an sf object using [st_as_sf][sf::st_as_sf].
+#' @param mapping A mapping, created using [aes][ggplot2::aes].
+#' @param sf_params Passed to [st_as_sf][sf::st_as_sf].
 #' @param inherit.aes Inherit aesthetics from ggplot()?
-#' @param ... Passed to \link[ggplot2]{geom_sf}
+#' @param ... Passed to [geom_sf][ggplot2::geom_sf]
 #'
-#' @return A ggplot2 \link[ggplot2]{layer}.
+#' @return A ggplot2 [layer][ggplot2::layer].
 #' @export
 #' @importFrom ggplot2 aes
 #'
 #' @examples
+#' library(ggplot2)
 #' load_longlake_data()
 #'
 #' ggplot() +
@@ -49,7 +50,7 @@ layer_spatial.default <- function(data, mapping = aes(), inherit.aes = FALSE, sf
   ggplot2::geom_sf(
     mapping = mapping,
     data = do.call(sf::st_as_sf, c(list(data), sf_params)),
-    inherit.aes = FALSE,
+    inherit.aes = inherit.aes,
     ...
   )
 }
@@ -60,10 +61,28 @@ annotation_spatial.default <- function(data, mapping = aes(), inherit.aes = FALS
   ggplot2::geom_sf(
     mapping = mapping,
     data = do.call(sf::st_as_sf, c(list(data), sf_params)),
-    inherit.aes = FALSE,
+    inherit.aes = inherit.aes,
     na.rm = TRUE,
     stat = StatSfAnnotation,
     ...
+  )
+}
+
+#' @export
+#' @rdname layer_spatial
+shadow_spatial <- function(data, ...) {
+  UseMethod("shadow_spatial")
+}
+
+#' @rdname layer_spatial
+#' @export
+shadow_spatial.default <- function(data, ...) {
+  ggplot2::stat_sf(
+    mapping = aes(),
+    data = sf::st_as_sf(data),
+    inherit.aes = FALSE,
+    na.rm = FALSE,
+    geom = GeomBlankSf
   )
 }
 
@@ -80,3 +99,8 @@ StatSfAnnotation <- ggplot2::ggproto(
   }
 )
 
+GeomBlankSf <- ggplot2::ggproto(
+  "GeomBlankSf",
+  ggplot2::GeomBlank,
+  extra_params = c(ggplot2::GeomBlank$extra_params, "legend")
+)

@@ -5,13 +5,26 @@
 \alias{annotation_scale}
 \alias{GeomScaleBar}
 \title{Spatial-aware scalebar annotation}
-\format{An object of class \code{GeomScaleBar} (inherits from \code{Geom}, \code{ggproto}, \code{gg}) of length 5.}
+\format{
+An object of class \code{GeomScaleBar} (inherits from \code{Geom}, \code{ggproto}, \code{gg}) of length 5.
+}
 \usage{
-annotation_scale(mapping = NULL, data = NULL, ..., plot_unit = NULL,
-  bar_cols = c("black", "white"), line_width = 1, height = unit(0.25,
-  "cm"), pad_x = unit(0.25, "cm"), pad_y = unit(0.25, "cm"),
-  text_pad = unit(0.15, "cm"), text_cex = 0.7, text_face = NULL,
-  text_family = "", tick_height = 0.6)
+annotation_scale(
+  mapping = NULL,
+  data = NULL,
+  ...,
+  plot_unit = NULL,
+  bar_cols = c("black", "white"),
+  line_width = 1,
+  height = unit(0.25, "cm"),
+  pad_x = unit(0.25, "cm"),
+  pad_y = unit(0.25, "cm"),
+  text_pad = unit(0.15, "cm"),
+  text_cex = 0.7,
+  text_face = NULL,
+  text_family = "",
+  tick_height = 0.6
+)
 
 GeomScaleBar
 }
@@ -45,13 +58,13 @@ The following can be used as parameters or aesthetics. Using them as
 aesthetics is useful when facets are used to display multiple panels,
 and a different (or missing) scale bar is required in different panels.
 Otherwise, just pass them as arguments to \code{annotation_scale}.
-  \itemize{
-    \item width_hint: The (suggested) proportion of the plot area which the scalebar should occupy.
-    \item unit_category: Use "metric" or "imperial" units.
-    \item style: One of "bar" or "ticks"
-    \item location: Where to put the scale bar ("tl" for top left, etc.)
-    \item line_col and text_col: Line and text colour, respectively
-  }
+\itemize{
+\item width_hint: The (suggested) proportion of the plot area which the scalebar should occupy.
+\item unit_category: Use "metric" or "imperial" units.
+\item style: One of "bar" or "ticks"
+\item location: Where to put the scale bar ("tl" for top left, etc.)
+\item line_col and text_col: Line and text colour, respectively
+}
 }
 
 \examples{

@@ -5,12 +5,21 @@
 \alias{annotation_north_arrow}
 \alias{GeomNorthArrow}
 \title{Spatial-aware north arrow}
-\format{An object of class \code{GeomNorthArrow} (inherits from \code{Geom}, \code{ggproto}, \code{gg}) of length 5.}
+\format{
+An object of class \code{GeomNorthArrow} (inherits from \code{Geom}, \code{ggproto}, \code{gg}) of length 5.
+}
 \usage{
-annotation_north_arrow(mapping = NULL, data = NULL, ...,
-  height = unit(1.5, "cm"), width = unit(1.5, "cm"), pad_x = unit(0.25,
-  "cm"), pad_y = unit(0.25, "cm"), rotation = NULL,
-  style = north_arrow_orienteering)
+annotation_north_arrow(
+  mapping = NULL,
+  data = NULL,
+  ...,
+  height = unit(1.5, "cm"),
+  width = unit(1.5, "cm"),
+  pad_x = unit(0.25, "cm"),
+  pad_y = unit(0.25, "cm"),
+  rotation = NULL,
+  style = north_arrow_orienteering
+)
 
 GeomNorthArrow
 }
@@ -38,11 +47,11 @@ The following can be used as parameters or aesthetics. Using them as
 aesthetics is useful when facets are used to display multiple panels,
 and a different (or missing) scale bar is required in different panels.
 Otherwise, just pass them as arguments to \code{annotation_north_arrow()}.
-  \itemize{
-    \item which_north: "grid" results in a north arrow always pointing up; "true" always points to the
-        north pole from whichever corner of the map the north arrow is in.
-    \item location: Where to put the scale bar ("tl" for top left, etc.)
-  }
+\itemize{
+\item which_north: "grid" results in a north arrow always pointing up; "true" always points to the
+north pole from whichever corner of the map the north arrow is in.
+\item location: Where to put the scale bar ("tl" for top left, etc.)
+}
 }
 
 \examples{

@@ -4,12 +4,20 @@
 \alias{geom_polypath}
 \title{Polygons with holes in ggplot2}
 \usage{
-geom_polypath(mapping = NULL, data = NULL, stat = "identity",
-  position = "identity", na.rm = FALSE, show.legend = NA,
-  inherit.aes = TRUE, rule = "winding", ...)
+geom_polypath(
+  mapping = NULL,
+  data = NULL,
+  stat = "identity",
+  position = "identity",
+  na.rm = FALSE,
+  show.legend = NA,
+  inherit.aes = TRUE,
+  rule = "winding",
+  ...
+)
 }
 \arguments{
-\item{mapping}{An aesthetic mapping, created with \link[ggplot2]{aes}. The aesthetic
+\item{mapping}{An aesthetic mapping, created with \link[ggplot2:aes]{aes}. The aesthetic
 will mostly likely need to contain a \code{group} mapping.}
 
 \item{data}{A data.frame containing the coordinates to plot.}
@@ -33,11 +41,12 @@ A ggplot2 layer
 }
 \description{
 This geometry correctly plots polygons with holes in ggplot2 at the
-expense of doing so (slightly) more slowly than \link[ggplot2]{geom_polygon}. This
+expense of doing so (slightly) more slowly than \link[ggplot2:geom_polygon]{geom_polygon}. This
 implementation fixes a bug in the \code{ggpolypath} package, which provides
 similar functionality.
 }
 \examples{
+library(ggplot2)
 load_longlake_data()
 ggplot(df_spatial(longlake_waterdf), aes(x, y, group = piece_id)) +
   geom_polypath()

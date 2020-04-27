@@ -11,9 +11,16 @@
 \alias{geom_spatial_label_repel}
 \title{Spatial-aware ggplot2 layers}
 \usage{
-stat_spatial_identity(mapping = NULL, data = NULL, crs = NULL,
-  geom = "point", position = "identity", ..., show.legend = NA,
-  inherit.aes = TRUE)
+stat_spatial_identity(
+  mapping = NULL,
+  data = NULL,
+  crs = NULL,
+  geom = "point",
+  position = "identity",
+  ...,
+  show.legend = NA,
+  inherit.aes = TRUE
+)
 
 geom_spatial_point(mapping = NULL, data = NULL, crs = NULL, ...)
 
@@ -30,32 +37,29 @@ geom_spatial_text_repel(mapping = NULL, data = NULL, crs = NULL, ...)
 geom_spatial_label_repel(mapping = NULL, data = NULL, crs = NULL, ...)
 }
 \arguments{
-\item{mapping}{An aesthetic mapping created with \link[ggplot2]{aes}.}
+\item{mapping}{An aesthetic mapping created with \code{\link[ggplot2:aes]{ggplot2::aes()}}.}
 
-\item{data}{A data frame or other object, coerced to a data.frame by \link[ggplot2]{fortify}.}
+\item{data}{A data frame or other object, coerced to a data.frame by \code{\link[ggplot2:fortify]{ggplot2::fortify()}}.}
 
 \item{crs}{The crs of the x and y aesthetics, or NULL to use default lon/lat
-crs.}
+crs (with a message).}
 
 \item{geom}{The geometry to use.}
 
 \item{position}{The position to use.}
 
-\item{...}{Passed to the base ggplot2 functions \link[ggplot2]{geom_point},
-\link[ggplot2]{geom_path}, \link[ggplot2]{geom_polygon},
-\link[ggplot2]{geom_text}, \link[ggplot2]{geom_label},
-\link[ggrepel]{geom_text_repel}, and \link[ggrepel]{geom_label_repel}, respectively.}
+\item{...}{Passed to the combined stat/geom as parameters or fixed aesthetics.}
 
-\item{show.legend, inherit.aes}{See \link[ggplot2]{layer}.}
+\item{show.legend, inherit.aes}{See \code{\link[ggplot2:layer]{ggplot2::layer()}}.}
 }
 \value{
-A ggplot2 layer.
+A \code{\link[ggplot2:layer]{ggplot2::layer()}}.
 }
 \description{
-These layers are much like their counterparts, \link[ggplot2]{stat_identity},
-\link[ggplot2]{geom_point}, \link[ggplot2]{geom_path},
-and \link[ggplot2]{geom_polygon}, except they have a \code{crs} argument that
-ensures they are projected when using \link[ggplot2]{coord_sf}. Stats are applied to the x and y coordinates
+These layers are much like their counterparts, \link[ggplot2:stat_identity]{stat_identity},
+\link[ggplot2:geom_point]{geom_point}, \link[ggplot2:geom_path]{geom_path},
+and \link[ggplot2:geom_polygon]{geom_polygon}, except they have a \code{crs} argument that
+ensures they are projected when using \link[ggplot2:coord_sf]{coord_sf}. Stats are applied to the x and y coordinates
 that have been transformed.
 }
 \examples{

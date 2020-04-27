@@ -1,25 +1,22 @@
 
 #' Spatial-aware ggplot2 layers
 #'
-#' These layers are much like their counterparts, \link[ggplot2]{stat_identity},
-#' \link[ggplot2]{geom_point}, \link[ggplot2]{geom_path},
-#' and \link[ggplot2]{geom_polygon}, except they have a \code{crs} argument that
-#' ensures they are projected when using \link[ggplot2]{coord_sf}. Stats are applied to the x and y coordinates
+#' These layers are much like their counterparts, [stat_identity][ggplot2::stat_identity],
+#' [geom_point][ggplot2::geom_point], [geom_path][ggplot2::geom_path],
+#' and [geom_polygon][ggplot2::geom_polygon], except they have a `crs` argument that
+#' ensures they are projected when using [coord_sf][ggplot2::coord_sf]. Stats are applied to the x and y coordinates
 #' that have been transformed.
 #'
-#' @param mapping An aesthetic mapping created with \link[ggplot2]{aes}.
-#' @param data A data frame or other object, coerced to a data.frame by \link[ggplot2]{fortify}.
+#' @param mapping An aesthetic mapping created with [ggplot2::aes()].
+#' @param data A data frame or other object, coerced to a data.frame by [ggplot2::fortify()].
 #' @param crs The crs of the x and y aesthetics, or NULL to use default lon/lat
-#'   crs.
+#'   crs (with a message).
 #' @param geom The geometry to use.
 #' @param position The position to use.
-#' @param ... Passed to the base ggplot2 functions \link[ggplot2]{geom_point},
-#'   \link[ggplot2]{geom_path}, \link[ggplot2]{geom_polygon},
-#'   \link[ggplot2]{geom_text}, \link[ggplot2]{geom_label},
-#'   \link[ggrepel]{geom_text_repel}, and \link[ggrepel]{geom_label_repel}, respectively.
-#' @param show.legend,inherit.aes See \link[ggplot2]{layer}.
+#' @param ... Passed to the combined stat/geom as parameters or fixed aesthetics.
+#' @param show.legend,inherit.aes See [ggplot2::layer()].
 #'
-#' @return A ggplot2 layer.
+#' @return A [ggplot2::layer()].
 #' @export
 #'
 #' @examples
@@ -168,7 +165,7 @@ create_spatial_stat_class <- function(ParentStat, class_name) {
     compute_layer = function(self, data, params, layout) {
 
       if(is.null(params$crs)) {
-        message("Assuming crs = 4326 in ", class_name, "()")
+        message("Assuming `crs = 4326` in ", class_name, "()")
         from_crs <- sf::st_crs(4326)
       } else {
         from_crs <- sf::st_crs(params$crs)
@@ -176,8 +173,16 @@ create_spatial_stat_class <- function(ParentStat, class_name) {
 
       if(!is.null(layout$coord_params$crs)) {
         # project data XY coordinates
-        if(!all(c("x", "y") %in% colnames(data))) stop("Missing required aesthetics x, y in ", class_name, "()")
-        data[c("x", "y")] <- xy_transform(data$x, data$y, from = from_crs, to = layout$coord_params$crs)
+        if(!all(c("x", "y") %in% colnames(data))) {
+          stop("Missing required aesthetics x, y in ", class_name, "()")
+        }
+
+        # project `x` and `y`
+        data[c("x", "y")] <- xy_transform(
+          data$x, data$y,
+          from = from_crs,
+          to = layout$coord_params$crs
+        )
       } else {
         warning(
           "Ignoring transformation in ", class_name, "(). Use coord_sf() with a crs to project this layer.",

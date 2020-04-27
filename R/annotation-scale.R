@@ -15,7 +15,7 @@
 #' The following can be used as parameters or aesthetics. Using them as
 #' aesthetics is useful when facets are used to display multiple panels,
 #' and a different (or missing) scale bar is required in different panels.
-#' Otherwise, just pass them as arguments to \code{annotation_scale}.
+#' Otherwise, just pass them as arguments to `annotation_scale`.
 #'   \itemize{
 #'     \item width_hint: The (suggested) proportion of the plot area which the scalebar should occupy.
 #'     \item unit_category: Use "metric" or "imperial" units.
@@ -139,19 +139,22 @@ GeomScaleBar <- ggplot2::ggproto(
       is.numeric(tick_height), length(tick_height) == 1
     )
 
+    # ranges have to be unnamed because when given
+    # xlim or ylim, these values have names that c()
+    # "helpfully" appends
     if(inherits(coordinates, "CoordSf")) {
       sf_bbox <- c(
-        xmin = panel_params$x_range[1],
-        xmax = panel_params$x_range[2],
-        ymin = panel_params$y_range[1],
-        ymax = panel_params$y_range[2]
+        xmin = unname(panel_params$x_range[1]),
+        xmax = unname(panel_params$x_range[2]),
+        ymin = unname(panel_params$y_range[1]),
+        ymax = unname(panel_params$y_range[2])
       )
     } else if(coordinates$is_linear()) {
       sf_bbox <- c(
-        xmin = panel_params$x.range[1],
-        xmax = panel_params$x.range[2],
-        ymin = panel_params$y.range[1],
-        ymax = panel_params$y.range[2]
+        xmin = unname(panel_params$x.range[1]),
+        xmax = unname(panel_params$x.range[2]),
+        ymin = unname(panel_params$y.range[1]),
+        ymax = unname(panel_params$y.range[2])
       )
     } else {
       stop("Don't know how to create scalebar using ", paste(class(coordinates), collapse = "/"))

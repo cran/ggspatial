@@ -5,14 +5,14 @@
 #' @param pad_x,pad_y Padding between north arrow and edge of frame
 #' @param rotation Override the rotation of the north arrow (degrees conterclockwise)
 #' @param style A grob or callable that produces a grob that will be drawn as the north arrow.
-#'   See \link{north_arrow_orienteering} for options.
+#'   See [north_arrow_orienteering] for options.
 #' @param mapping,data,... See Aesthetics
 #'
 #' @section Aesthetics:
 #' The following can be used as parameters or aesthetics. Using them as
 #' aesthetics is useful when facets are used to display multiple panels,
 #' and a different (or missing) scale bar is required in different panels.
-#' Otherwise, just pass them as arguments to \code{annotation_north_arrow()}.
+#' Otherwise, just pass them as arguments to `annotation_north_arrow()`.
 #'   \itemize{
 #'     \item which_north: "grid" results in a north arrow always pointing up; "true" always points to the
 #'         north pole from whichever corner of the map the north arrow is in.
@@ -108,10 +108,10 @@ GeomNorthArrow <- ggplot2::ggproto(
       if((which_north == "true") && inherits(coordinates, "CoordSf")) {
         # calculate bearing from centre of map to the north pole?
         bounds <- c(
-          l = panel_params$x_range[1],
-          r = panel_params$x_range[2],
-          b = panel_params$y_range[1],
-          t = panel_params$y_range[2]
+          l = unname(panel_params$x_range[1]),
+          r = unname(panel_params$x_range[2]),
+          b = unname(panel_params$y_range[1]),
+          t = unname(panel_params$y_range[2])
         )
 
         rotation <- -1 * true_north(
@@ -254,7 +254,7 @@ north_arrow_orienteering <- function(line_width = 1, line_col = "black", fill = 
       id = arrow_id,
       default.units = "npc",
       gp = grid::gpar(
-        linewidth = line_width,
+        lwd = line_width,
         col = line_col,
         fill = fill
       )
@@ -269,7 +269,8 @@ north_arrow_orienteering <- function(line_width = 1, line_col = "black", fill = 
       gp = grid::gpar(
         fontfamily = text_family,
         fontface = text_face,
-        fontsize = text_size + 2
+        fontsize = text_size + 2,
+        col = text_col
       )
     )
   )
@@ -319,7 +320,8 @@ north_arrow_fancy_orienteering <- function(line_width = 1, line_col = "black", f
       gp = grid::gpar(
         fontfamily = text_family,
         fontface = text_face,
-        fontsize = text_size
+        fontsize = text_size,
+        col = text_col
       )
     )
   )
@@ -374,7 +376,8 @@ north_arrow_minimal <- function(line_width = 1, line_col = "black", fill = "blac
       gp = grid::gpar(
         fontfamily = text_family,
         fontface = text_face,
-        fontsize = text_size
+        fontsize = text_size,
+        col = text_col
       )
     )
   )

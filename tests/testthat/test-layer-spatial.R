@@ -1,41 +1,43 @@
 context("test-layer-spatial.R")
 
 test_that("layer_spatial() works as intended", {
-  load_longlake_data()
+  load_longlake_data(which = c("longlake_roadsdf", "longlake_waterdf", "longlake_depthdf"))
 
-  print(
+  vdiffr::expect_doppelganger(
+    "layer_spatial()",
     ggplot() +
       layer_spatial(longlake_roadsdf, size = 1, col = "black") +
       layer_spatial(longlake_roadsdf, size = 0.8, col = "white") +
       layer_spatial(longlake_waterdf, fill = "lightblue", col = NA) +
-      layer_spatial(longlake_depthdf, aes(col = DEPTH_M)) +
-      labs(caption = "Should show long lake, round lake, etc.")
+      layer_spatial(longlake_depthdf, aes(col = DEPTH_M))
   )
 
-  print(
+  vdiffr::expect_doppelganger(
+    "shadow_spatial()",
+    ggplot() +
+      shadow_spatial(longlake_roadsdf) +
+      shadow_spatial(longlake_waterdf) +
+      layer_spatial(longlake_depthdf, aes(col = DEPTH_M))
+  )
+
+  vdiffr::expect_doppelganger(
+    "annotation_spatial()",
     ggplot() +
       annotation_spatial(longlake_roadsdf, size = 1, col = "black") +
       annotation_spatial(longlake_roadsdf, size = 0.8, col = "white") +
       annotation_spatial(longlake_waterdf, fill = "lightblue", col = NA) +
-      layer_spatial(longlake_depthdf, aes(col = DEPTH_M)) +
-      labs(caption = "Should show only long lake")
+      layer_spatial(longlake_depthdf, aes(col = DEPTH_M))
   )
 
   # sp objects converted to sf
-  ggplot() + layer_spatial(as(longlake_depthdf, "Spatial"), aes(col = DEPTH_M))
-  ggplot() + layer_spatial(longlake_depthdf, aes(col = DEPTH_M))
-
-  # visual test
-  expect_true(TRUE)
+  expect_is(layer_spatial(as(longlake_depthdf, "Spatial"), aes(col = DEPTH_M)), "list")
+  expect_is(layer_spatial(longlake_depthdf, aes(col = DEPTH_M)), "list")
 })
 
-# this is depedent on the fix of an sf bug, which has been closed but not released to CRAN
-# https://github.com/r-spatial/sf/issues/905
-#
-# test_that("3D sp data can be used with layer_spatial()", {
-#   spoints <- sp::SpatialPoints(
-#     matrix(c(0, 0, 1, 1, 1, 0), nrow = 2, byrow = TRUE),
-#     proj4string = sp::CRS("+init=epsg:4326")
-#   )
-#   expect_silent(ggplot() + layer_spatial(spoints))
-# })
+test_that("3D sp data can be used with layer_spatial()", {
+  spoints <- sp::SpatialPoints(
+    matrix(c(0, 0, 1, 1, 1, 0), nrow = 2, byrow = TRUE),
+    proj4string = sp::CRS("+proj=longlat +datum=WGS84 +no_defs +type=crs")
+  )
+  expect_silent(ggplot() + layer_spatial(spoints))
+})

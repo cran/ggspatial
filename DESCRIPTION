@@ -1,7 +1,7 @@
 Package: ggspatial
 Type: Package
 Title: Spatial Data Framework for ggplot2
-Version: 1.1.1
+Version: 1.1.2
 Authors@R: c(
     person("Dewey", "Dunnington",
            email = "dewey@fishandwhistle.net", 
@@ -26,8 +26,8 @@ LazyData: TRUE
 RoxygenNote: 7.1.0
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2020-04-27 13:45:35 UTC; dewey
+Packaged: 2020-05-25 22:55:37 UTC; dewey
 Author: Dewey Dunnington [aut, cre] (<https://orcid.org/0000-0002-9415-4582>),
   Brent Thorne [ctb] (<https://orcid.org/0000-0002-1099-3857>)
 Repository: CRAN
-Date/Publication: 2020-04-27 14:10:11 UTC
+Date/Publication: 2020-05-26 11:00:11 UTC

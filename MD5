@@ -1,10 +1,10 @@
-2e0bd1d30e6a63f71d48bb73133c97ac *DESCRIPTION
+fb3bc12a455311039715b402937558bf *DESCRIPTION
 9d9354ec04a30b4e04328f6157083241 *NAMESPACE
 64d81b24118c040950f08457185c4c98 *R/annotation-map-tile.R
 40506eda0276497afc7e052b4d852d06 *R/annotation-north-arrow.R
 9b9c82b35e0cb178220c9f48fe66a3dc *R/annotation-scale.R
 c6322e2264a7956ad9c4b3e56733c084 *R/df-spatial-raster.R
-1b1e42e24dd18a9d0ca9b56e1cee9f12 *R/df-spatial-sf.R
+4ada49eab185f5f0d5383f94106043b1 *R/df-spatial-sf.R
 f5c3f1bfb25d77c615f99fe8a314e953 *R/df-spatial-sp.R
 d7ed2417edd5106d12aabd4499308876 *R/df-spatial-stars.R
 67638da77dc7cecdfa1e0e32748ac270 *R/df-spatial.R
@@ -235,11 +235,11 @@ d092760550595e1288744c49584adff7 *tests/testthat/rosm.cache/osm/13_1297_2774.png
 e341dff4026d560e13b0457c2bbd3422 *tests/testthat/rosm.cache/osm/13_2635_2917.png
 890f06043f13d73af08d94a2420d386a *tests/testthat/rosm.cache/osm/13_2636_2917.png
 6f54a34a2e6fc9d2163e7f0fbe67476a *tests/testthat/test-annotation-map-tile.R
-2fcf85e1b574b58ef032d1e27809b5a6 *tests/testthat/test-annotation-north-arrow.R
+37ee8c4fdc986ab19c5fbf564806626f *tests/testthat/test-annotation-north-arrow.R
 35a3248db1264225ff82350964c509c6 *tests/testthat/test-annotation-scale.R
 64410e05c7055297e3692cb18625f1c8 *tests/testthat/test-df-spatial-raster.R
 47133a347c4c7d346050c56f1fa43cbb *tests/testthat/test-df-spatial-sf.R
-a9bf8242b93b2fe1f3e37767479730b9 *tests/testthat/test-df-spatial-sp.R
+ff1d1bfb300f36ab9fc195f8a1fa92f6 *tests/testthat/test-df-spatial-sp.R
 31a6ca954c89183e869bc69b2353a36a *tests/testthat/test-df-spatial-stars.R
 458091d7d5b4eac4c90b5694aaa03c58 *tests/testthat/test-df-spatial.R
 095c7a6a893a2d0fd24c1eff7b7af16c *tests/testthat/test-fixed-aspect.R

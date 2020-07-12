@@ -1,7 +1,7 @@
 Package: ggspatial
 Type: Package
 Title: Spatial Data Framework for ggplot2
-Version: 1.1.3
+Version: 1.1.4
 Authors@R: c(
     person("Dewey", "Dunnington",
            email = "dewey@fishandwhistle.net", 
@@ -23,11 +23,11 @@ URL: https://paleolimbot.github.io/ggspatial,
         https://github.com/paleolimbot/ggspatial
 BugReports: https://github.com/paleolimbot/ggspatial/issues
 LazyData: TRUE
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2020-06-09 13:18:47 UTC; dewey
+Packaged: 2020-07-12 13:55:12 UTC; dewey
 Author: Dewey Dunnington [aut, cre] (<https://orcid.org/0000-0002-9415-4582>),
   Brent Thorne [ctb] (<https://orcid.org/0000-0002-1099-3857>)
 Repository: CRAN
-Date/Publication: 2020-06-09 15:20:03 UTC
+Date/Publication: 2020-07-12 22:50:06 UTC

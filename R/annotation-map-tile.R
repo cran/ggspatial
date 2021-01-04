@@ -6,7 +6,7 @@
 #' (e.g., "Copyright OpenStreetMap contributors" when using an
 #' OpenStreetMap-based tile set).
 #'
-#' @param type The map type
+#' @param type The map type (one of that returned by [rosm::osm.types])
 #' @param zoom The zoom level (overrides zoomin)
 #' @param zoomin Delta on default zoom. The default value is designed
 #'   to download fewer tiles than you probably want. Use `-1` or `0` to
@@ -115,6 +115,14 @@ GeomMapTile <- ggplot2::ggproto(
         format = "sp"
       )
 
+      # check for a bounding box that is too small (<5 m)
+      # (may cause rosm_raster() to crash RStudio)
+      if (.geodist(sp_bbox[, 1], sp_bbox[, 2]) < 5) {
+        warning("annotation_map_tile(): bounding box is too small", call. = FALSE)
+        return(ggplot2::zeroGrob())
+      }
+
+
     } else {
       stop("geom_map_tile() requires coord_sf().", call. = FALSE)
     }
@@ -123,7 +131,9 @@ GeomMapTile <- ggplot2::ggproto(
 
       # have to use raster to reproject...
       # because this involves a call to projectRaster(), it has to be wrapped in
-      # suppressWarnings to avaoid the "no non-missing arguments to min; returning Inf" error
+      # suppressWarnings to avoid the "no non-missing arguments to min; returning Inf" error
+      # Suppress "Discarded datum ... in CRS definition" warning (not important at the scale
+      # of an OSM map)
       raster <- suppressWarnings(
         rosm_raster(
           x = sp_bbox,
@@ -153,16 +163,20 @@ GeomMapTile <- ggplot2::ggproto(
 
     } else {
 
-      # can use osm.image, which is much faster (and this is the most common case)
-      img <- rosm_image(
-        x = sp_bbox,
-        zoomin = data[["zoomin"]][1],
-        zoom = data[["zoom"]][1],
-        type = as.character(data[["type"]][1]),
-        forcedownload = forcedownload,
-        cachedir = cachedir,
-        progress = progress,
-        quiet = quiet
+      # Can use osm.image, which is much faster (and this is the most common case)
+      # Suppress "Discarded datum ... in CRS definition" warning (not important at the scale
+      # of an OSM map)
+      img <- suppressWarnings(
+        rosm_image(
+          x = sp_bbox,
+          zoomin = data[["zoomin"]][1],
+          zoom = data[["zoom"]][1],
+          type = as.character(data[["type"]][1]),
+          forcedownload = forcedownload,
+          cachedir = cachedir,
+          progress = progress,
+          quiet = quiet
+        )
       )
 
       bbox_img <- attr(img, "bbox")

@@ -1,6 +1,8 @@
 context("test-layer-spatial.R")
 
 test_that("layer_spatial() works as intended", {
+  skip_if_not_installed("vdiffr")
+
   load_longlake_data(which = c("longlake_roadsdf", "longlake_waterdf", "longlake_depthdf"))
 
   vdiffr::expect_doppelganger(
@@ -30,7 +32,7 @@ test_that("layer_spatial() works as intended", {
   )
 
   # sp objects converted to sf
-  expect_is(layer_spatial(as(longlake_depthdf, "Spatial"), aes(col = DEPTH_M)), "list")
+  expect_is(layer_spatial(suppressWarnings(as(longlake_depthdf, "Spatial")), aes(col = DEPTH_M)), "list")
   expect_is(layer_spatial(longlake_depthdf, aes(col = DEPTH_M)), "list")
 })
 

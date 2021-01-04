@@ -1,6 +1,9 @@
 context("test-geom-spatial-segment")
 
 test_that("geom_spatial_segment() works", {
+  skip_if_not_installed("vdiffr")
+  skip_if_not_installed("lwgeom")
+
   cities <- data.frame(
     x = c(-63.58595, 116.41214, 13.50, -149.75),
     y = c(44.64862, 40.19063, 52.51, 61.20),

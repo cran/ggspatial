@@ -9,10 +9,12 @@
 #' @export
 #'
 #' @examples
-#' load_longlake_data()
+#' \donttest{
+#' load_longlake_data(which = c("longlake_osm", "longlake_depthdf"))
 #' df_spatial(longlake_osm)
 #' df_spatial(longlake_depthdf)
 #' df_spatial(as(longlake_depthdf, "Spatial"))
+#' }
 #'
 df_spatial <- function(x, ...) {
   UseMethod("df_spatial")
@@ -48,15 +50,12 @@ fix_duplicate_cols <- function(...) {
 }
 
 expect_df_spatial <- function(expr, cols = character(0)) {
-  expr_name <- paste("Expression:", deparse(substitute(expr)))
-  df <- df_spatial(expr)
-
+  expr_quo <- rlang::enquo(expr)
   testthat::expect_true(
-    all(c("x", "y", cols) %in% colnames(df)),
-    info = expr_name
+    all(c("x", "y", cols) %in% colnames(df_spatial(expr)))
   )
-  testthat::expect_is(df, "data.frame", info = expr_name)
-  testthat::expect_is(df, "tbl_df", info = expr_name)
+  testthat::expect_s3_class(df_spatial(expr), "data.frame")
+  testthat::expect_s3_class(df_spatial(expr), "tbl_df")
 
-  invisible(df)
+  invisible(df_spatial(expr))
 }

@@ -62,7 +62,7 @@ crs (with a message).}
 
 \item{na.rm}{Should missing aesthetic values be removed?}
 
-\item{show.legend}{See \code{\link[ggplot2:layer]{ggplot2::layer()}}.}
+\item{show.legend}{Should the legend be shown?}
 }
 \description{
 Projected horizontal and vertical lines

@@ -58,12 +58,14 @@ a map using these tiles, make sure to use the proper attribution
 OpenStreetMap-based tile set).
 }
 \examples{
+\donttest{
 library(ggplot2)
-load_longlake_data()
+load_longlake_data(which = "longlake_waterdf")
 
 ggplot() +
   annotation_map_tile(zoom = 13, cachedir = system.file("rosm.cache", package = "ggspatial")) +
   geom_sf(data = longlake_waterdf, fill = NA, col = "grey50")
+}
 
 }
 \keyword{datasets}

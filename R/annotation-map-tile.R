@@ -23,12 +23,14 @@
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' library(ggplot2)
-#' load_longlake_data()
+#' load_longlake_data(which = "longlake_waterdf")
 #'
 #' ggplot() +
 #'   annotation_map_tile(zoom = 13, cachedir = system.file("rosm.cache", package = "ggspatial")) +
 #'   geom_sf(data = longlake_waterdf, fill = NA, col = "grey50")
+#' }
 #'
 annotation_map_tile <- function(type = "osm", zoom = NULL, zoomin = -2,
                                 forcedownload = FALSE, cachedir = NULL,

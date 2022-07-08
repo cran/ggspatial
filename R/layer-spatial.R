@@ -1,8 +1,9 @@
 
 #' Turn a spatial object into a ggplot2 layer
 #'
-#' See also [layer_spatial.Raster()], [layer_spatial.stars()], and [layer_spatial.bbox()]
-#' for implementations for other types of spatial objects.
+#' See also [layer_spatial.Raster()], [layer_spatial.stars()],
+#' [layer_spatial.SpatRaster()] and [layer_spatial.bbox()] for implementations
+#' for other types of spatial objects.
 #'
 #' @param data An object that can be coerced to an sf object using [st_as_sf][sf::st_as_sf].
 #' @param mapping A mapping, created using [aes][ggplot2::aes].
@@ -15,8 +16,15 @@
 #' @importFrom ggplot2 aes
 #'
 #' @examples
+#' \donttest{
 #' library(ggplot2)
-#' load_longlake_data()
+#' load_longlake_data(
+#'   which = c(
+#'     "longlake_roadsdf",
+#'     "longlake_depthdf",
+#'     "longlake_depth_raster"
+#'   )
+#' )
 #'
 #' ggplot() +
 #'
@@ -36,6 +44,7 @@
 #'
 #'   # spatial-aware automagic north arrow
 #'   annotation_north_arrow(location = "br", which_north = "true")
+#' }
 #'
 layer_spatial <- function(data, mapping, ...) {
   UseMethod("layer_spatial")

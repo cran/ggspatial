@@ -13,8 +13,9 @@
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' library(ggplot2)
-#' load_longlake_data()
+#' load_longlake_data(which = c("longlake_waterdf", "longlake_depthdf"))
 #' ggplot() +
 #'   layer_spatial(sf::st_bbox(longlake_waterdf)) +
 #'   layer_spatial(longlake_depthdf)
@@ -24,6 +25,7 @@
 #' ggplot() +
 #'   shadow_spatial(longlake_waterdf) +
 #'   layer_spatial(longlake_depthdf)
+#' }
 #'
 layer_spatial.bbox <- function(data, mapping = aes(), ..., detail = 30) {
   layer_spatial(sf_bbox_to_sf(data, detail = detail), mapping = mapping, ...)

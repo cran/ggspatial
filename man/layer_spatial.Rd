@@ -48,12 +48,20 @@ shadow_spatial(data, ...)
 A ggplot2 \link[ggplot2:layer]{layer}.
 }
 \description{
-See also \code{\link[=layer_spatial.Raster]{layer_spatial.Raster()}}, \code{\link[=layer_spatial.stars]{layer_spatial.stars()}}, and \code{\link[=layer_spatial.bbox]{layer_spatial.bbox()}}
-for implementations for other types of spatial objects.
+See also \code{\link[=layer_spatial.Raster]{layer_spatial.Raster()}}, \code{\link[=layer_spatial.stars]{layer_spatial.stars()}},
+\code{\link[=layer_spatial.SpatRaster]{layer_spatial.SpatRaster()}} and \code{\link[=layer_spatial.bbox]{layer_spatial.bbox()}} for implementations
+for other types of spatial objects.
 }
 \examples{
+\donttest{
 library(ggplot2)
-load_longlake_data()
+load_longlake_data(
+  which = c(
+    "longlake_roadsdf",
+    "longlake_depthdf",
+    "longlake_depth_raster"
+  )
+)
 
 ggplot() +
 
@@ -73,5 +81,6 @@ ggplot() +
 
   # spatial-aware automagic north arrow
   annotation_north_arrow(location = "br", which_north = "true")
+}
 
 }

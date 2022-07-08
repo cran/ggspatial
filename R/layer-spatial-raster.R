@@ -17,10 +17,12 @@
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' library(ggplot2)
-#' load_longlake_data()
+#' load_longlake_data(which = c("longlake_osm", "longlake_depth_raster"))
 #' ggplot() + layer_spatial(longlake_osm)
 #' ggplot() + layer_spatial(longlake_depth_raster) + scale_fill_continuous(na.value = NA)
+#' }
 #'
 layer_spatial.Raster <- function(data, mapping = NULL, interpolate = NULL, is_annotation = FALSE,
                                  lazy = FALSE, dpi = 150, ...) {
@@ -63,6 +65,7 @@ layer_spatial.Raster <- function(data, mapping = NULL, interpolate = NULL, is_an
       params = list(
         interpolate = if (!is.null(interpolate)) interpolate else is_rgb,
         lazy = lazy,
+        dpi = dpi,
         ...
       )
     ),
@@ -173,7 +176,7 @@ StatSpatialRasterDf <- ggplot2::ggproto(
   "StatSpatialRasterDf",
   ggplot2::Stat,
   required_aes = "raster",
-  extra_params = "lazy",
+  extra_params = c("lazy", "dpi"),
 
   default_aes = ggplot2::aes(fill = stat(band1)),
 

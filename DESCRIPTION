@@ -1,7 +1,7 @@
 Package: ggspatial
 Type: Package
 Title: Spatial Data Framework for ggplot2
-Version: 1.1.6
+Version: 1.1.7
 Authors@R: c(
     person("Dewey", "Dunnington",
            email = "dewey@fishandwhistle.net", 
@@ -24,13 +24,13 @@ Suggests: prettymapr, knitr, rmarkdown, sp, rgdal, raster, terra,
 URL: https://paleolimbot.github.io/ggspatial/,
         https://github.com/paleolimbot/ggspatial
 BugReports: https://github.com/paleolimbot/ggspatial/issues
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.1
 Encoding: UTF-8
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2022-07-08 17:26:07 UTC; deweydunnington
+Packaged: 2022-11-22 02:53:51 UTC; deweydunnington
 Author: Dewey Dunnington [aut, cre] (<https://orcid.org/0000-0002-9415-4582>),
   Brent Thorne [ctb] (<https://orcid.org/0000-0002-1099-3857>),
   Diego Hernangómez [ctb] (<https://orcid.org/0000-0001-8457-4658>)
 Repository: CRAN
-Date/Publication: 2022-07-08 22:00:05 UTC
+Date/Publication: 2022-11-24 10:00:02 UTC

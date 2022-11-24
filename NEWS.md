@@ -1,3 +1,8 @@
+# ggspatial 1.1.7
+
+* Fixed deprecated behaviour advanced in the latest ggplot2
+  release (#106).
+
 # ggspatial 1.1.6
 
 * Added terra package support (@dieghernan, #92, #94)

@@ -1,6 +1,6 @@
-f1c0e5a33dc9f3ad9aa942d57980bd68 *DESCRIPTION
+41f568ad4360124c6d6e278c29c80eb9 *DESCRIPTION
 59a34e04a6e054fda81d657fdba36581 *NAMESPACE
-43b59a7bd306d01acf37061e9b4ebaa3 *NEWS.md
+7c9a46cb757b557368c575ff0fd505b1 *NEWS.md
 c5e15f57d2034a0d2ec5eff82b1bc4b1 *R/annotation-map-tile.R
 e41df53e1320ea38aefaa5a773fe9020 *R/annotation-north-arrow.R
 9b9c82b35e0cb178220c9f48fe66a3dc *R/annotation-scale.R
@@ -21,7 +21,7 @@ d12977754af52e35b35b1f1edbb87800 *R/ggspatial-package.R
 0f6f7ed9535ec82633bc7d83273d371b *R/layer-spatial-raster.R
 33f9855c7375d98776b57e857bb58cb1 *R/layer-spatial-stars.R
 47b56e5e3b84fa230367be8437e64df2 *R/layer-spatial-terra.R
-a712719994290f00371afa3720bb8892 *R/layer-spatial.R
+2f2c75f30e813396917881c0646dbb75 *R/layer-spatial.R
 24f11cff9499dd028b3ca51e17dea3f3 *R/longlake-data.R
 8cf6040043e841a140a84386f6c1185b *R/utils.R
 19262cc385959c80e314f56265d3d44a *inst/longlake/LongLakeDepthSurvey.dbf
@@ -230,6 +230,10 @@ b98a5f940f254d0f76b590654adbb52a *man/load_longlake_data.Rd
 8258f92397b1ea0b1a4a08d7669328ff *man/stat_spatial_identity.Rd
 04ac7634cb0ec64985d4568e3feca8b7 *man/xy_transform.Rd
 ae7e8aacde52233df6f7b56cb9c41697 *tests/testthat.R
+82703c742697aad893e77f9d916bc13c *tests/testthat/rosm.cache/osm/13_1296_2773.png
+0f14a7217fa1c0dd8f8717ddf74631eb *tests/testthat/rosm.cache/osm/13_1296_2774.png
+bfcf498c679bafe41ac7ac3acb3565b6 *tests/testthat/rosm.cache/osm/13_1297_2773.png
+40cc237f96913fa324bfd914690ff546 *tests/testthat/rosm.cache/osm/13_1297_2774.png
 7fb67a702b144528070ce63dcb5e40b2 *tests/testthat/test-annotation-map-tile.R
 dcefa33209bece157f13d88072d3c3e3 *tests/testthat/test-annotation-north-arrow.R
 5f9a951577a3b4dbd8f5f89cbae1c30c *tests/testthat/test-annotation-scale.R

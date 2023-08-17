@@ -1,6 +1,6 @@
-41f568ad4360124c6d6e278c29c80eb9 *DESCRIPTION
+330b05f88920004dfe7a84bd448b4819 *DESCRIPTION
 59a34e04a6e054fda81d657fdba36581 *NAMESPACE
-7c9a46cb757b557368c575ff0fd505b1 *NEWS.md
+fdf4d3d01285f663e171663710e1e960 *NEWS.md
 c5e15f57d2034a0d2ec5eff82b1bc4b1 *R/annotation-map-tile.R
 e41df53e1320ea38aefaa5a773fe9020 *R/annotation-north-arrow.R
 9b9c82b35e0cb178220c9f48fe66a3dc *R/annotation-scale.R
@@ -18,7 +18,7 @@ f5c3f1bfb25d77c615f99fe8a314e953 *R/df-spatial-sp.R
 cfdbfc0f4359df239dc64bae81502cb3 *R/geom-spatial.R
 d12977754af52e35b35b1f1edbb87800 *R/ggspatial-package.R
 3dd5431c1b3c645b1788757193ba89bc *R/layer-spatial-bbox.R
-0f6f7ed9535ec82633bc7d83273d371b *R/layer-spatial-raster.R
+fd584a3edf13fc585b58da4b49814f6d *R/layer-spatial-raster.R
 33f9855c7375d98776b57e857bb58cb1 *R/layer-spatial-stars.R
 47b56e5e3b84fa230367be8437e64df2 *R/layer-spatial-terra.R
 2f2c75f30e813396917881c0646dbb75 *R/layer-spatial.R
@@ -213,7 +213,7 @@ b745cad332cf080ca57dadf2830051eb *inst/rosm.cache/stamenwatercolor/2_3_1.jpg
 63a29aee1503472478a8d3c84e09c726 *man/annotation_scale.Rd
 5cbf3465b3dd43e6e1bad3d5321cdc2d *man/annotation_spatial_hline.Rd
 86287f7ef4b89732a7908fe7a9a5db96 *man/df_spatial.Rd
-9a9445ffd854e785a7f95e8b8640ade0 *man/figures/README-fig-layer-spatial-sf-1.png
+501784b77f5476c02e8d3672369c36b6 *man/figures/README-fig-layer-spatial-sf-1.png
 2b4e9ace6566c4a48acb4a477d061709 *man/fixed_plot_aspect.Rd
 6eec222dec067ca1baeebfa804e4176a *man/geom_polypath.Rd
 3f3b8269b6ab60b871ee534b4ba02873 *man/geom_spatial_rect.Rd
@@ -250,7 +250,7 @@ c9760a10e618e5f3a8be6f0ceae078fc *tests/testthat/test-geom-spatial-rect.R
 a62be1f9fe9f97a538462dd0426f4908 *tests/testthat/test-geom-spatial-xline.R
 f5163de75725adeb8a3c5b945312885d *tests/testthat/test-geom-spatial.R
 f716f5537aa75e3ff5ee218e2455e83a *tests/testthat/test-layer-spatial-bbox.R
-c4c93433a6efd11923b83acfd8faf822 *tests/testthat/test-layer-spatial-raster.R
+6a145651e4da795e387788685fafbb56 *tests/testthat/test-layer-spatial-raster.R
 09c0c23e4944a1abcb317cc159878989 *tests/testthat/test-layer-spatial-stars.R
 92b648757af5102457b58324397adc20 *tests/testthat/test-layer-spatial-terra.R
 2f9ab09c251ae25ae16f700a4485fedf *tests/testthat/test-layer-spatial.R

@@ -1,3 +1,7 @@
+# ggspatial 1.1.9
+
+* Fix donttest examples for updated raster/terra stack.
+
 # ggspatial 1.1.8
 
 * Fix `annotation_spatial()` for the latest ggplot2 release (#114, #115).

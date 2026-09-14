@@ -1,3 +1,8 @@
+# ggspatial 1.1.11
+
+* Add support for passing an API key to rosm sources that require it (#138,
+  #139).
+
 # ggspatial 1.1.10
 
 * Updated `load_longlake_data()` to use terra package by default instead of the
